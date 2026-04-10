@@ -19,15 +19,15 @@ const projects = [
     link: "https://cryp-exc.vercel.app/",
     github: "#"
   },
-  //  {
-  //   title: "Crypto Trader Simulation",
-  //   category: "Web Development",
-  //   image: "/rypto.jpg",
-  //   desc: "Platform simulasi trading cryptocurrency real-time yang dibangun dengan Next.js.",
-  //   tags: ["Next.js", "API", "Trading"],
-  //   link: "https://cryp-exc.vercel.app/",
-  //   github: "#"
-  // },
+   {
+    title: "Web Ecommerce",
+    category: "Web Development",
+    image: "/ecommerce.jpg",
+    desc: "Web E-Commerce Makanan yang di Bangun Dengan Next.js.",
+    tags: ["Next.js", "Makanan", "E-Commerce"],
+    link: "https://commerce-roan-beta.vercel.app/",
+    github: "#"
+  },
   //  {
   //   title: "Crypto Trader Simulation",
   //   category: "Web Development",
