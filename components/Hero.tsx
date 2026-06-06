@@ -1,98 +1,78 @@
-import { ArrowDown } from 'lucide-react';
+"use client";
+
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <>
-      {/* HERO SECTION - Background paling gelap sebagai dasar */}
-      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0B0F1A]">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-32 md:pt-0">
+      
+      {/* Background Grid */}
+      {/* <div
+        className="absolute inset-0 z-0 opacity-[0.15]"
+        style={{
+          backgroundImage: `linear-gradient(#828282 1px, transparent 1px), 
+                            linear-gradient(90deg, #828282 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+       <div className="absolute inset-0 z-0 bg-linear-to-r from-fuchsia-600/15 via-transparent to-cyan-500/20" /> */}
+      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-8 items-center z-10 flex-col-reverse md:flex-row">
         
-        {/* Efek Cahaya Halus (Aksen pemisah agar tidak menyatu) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#059669]/10 blur-[120px] rounded-full -z-10" />
 
-        <div className="pt-20"> {/* Padding top agar tidak tertutup navbar */}
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
-            Raya <span className="text-[#059669] drop-shadow-[0_0_15px_rgba(5,150,105,0.3)]">Pratama</span>
+        {/* Bagian Teks */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-4 md:space-y-6"
+        >
+          {/* Ukuran teks disesuaikan agar tidak berantakan di HP */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          STUDENT
+        </div>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">
+            Hi, I'm <br />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-blue-500">Raya</span> Pratama
           </h1>
-          <p className="max-w-3xl text-gray-400 text-lg md:text-xl mb-12 mt-5 leading-relaxed">
-            I’m highly passionate and always excited to learn more about networking, automation, and web development.
+
+          <p className="text-lg md:text-xl text-gray-400 font-medium">
+            Ai Automation & Network Engineer
           </p>
-          
-          <a 
-            href="#about" 
-            className="group flex flex-col items-center gap-4 text-xs font-bold tracking-widest text-[#059669] uppercase transition"
-          >
-            Explore My Journey
-            <div className="p-3 border border-[#059669]/30 rounded-full group-hover:bg-[#059669] group-hover:text-black transition-all duration-300 animate-bounce shadow-[0_0_15px_rgba(5,150,105,0.2)]">
-              <ArrowDown size={20} />
+
+          {/* Ikon Tech - Gunakan flex-wrap agar tidak menumpuk saat layar sempit */}
+          <div className="pt-2 flex flex-wrap gap-4 md:gap-8 items-center">
+            <div>
+              <h4 className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-blue-500 font-black text-xl md:text-2xl">11th</h4>
+              <p className="text-gray-500 text-[10px] md:text-sm uppercase tracking-tighter">Grade Student</p>
             </div>
-          </a>
-        </div>
-      </section>
-
-      {/* ABOUT SECTION - Background sedikit lebih terang (Elevated) */}
-      <section id="about" className="py-32 bg-[#111622] relative overflow-hidden">
-        {/* Garis pemisah halus di atas */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#059669]/20 to-transparent" />
-
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          {/* Box Foto dengan Efek Border Glow */}
-          <div className="relative group flex justify-center md:justify-start">
-            {/* Glow Efek */}
-            <div className="absolute w-64 h-64 md:w-80 md:h-80 bg-gradient-to-r from-[#059669] to-[#38BDF8] rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-all duration-1000"></div>
-            
-            {/* Container Foto: W dan H harus SAMA (contoh: w-64 h-64) */}
-            <div className="relative w-80 h-80 md:w-100 md:h-100 bg-[#161B22] rounded-full border border-white/5 flex items-center justify-center overflow-hidden shadow-2xl">
-                {/* Gunakan object-cover agar gambar tidak penyet */}
-                <img 
-                  src="/pp.jpg" 
-                  alt="Raya Geandy Pratama" 
-                  className="w-full h-full object-cover"
-                />
-                {/* Fallback jika gambar belum ada */}
-                {/* <span className="text-gray-600 font-mono italic">Photo</span> */}
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex gap-4">
+              <img src="/winbox-icon.svg" alt="Winbox" className='w-10 h-10 md:w-15 md:h-15' />
+              <img src="/github-color.svg" alt="Github" className='w-10 h-10 md:w-15 md:h-15 brightness-0 invert' />
+              <img src="/visual-studio.png" alt="Visual Studio" className='w-10 h-10 md:w-15 md:h-15' />
+              <img src="/virtualbox-color.svg" alt="VirtualBox" className='w-10 h-10 md:w-15 md:h-15' />
             </div>
           </div>
+        </motion.div>
 
-          <div className="space-y-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#059669]/10 border border-[#059669]/20 text-[#059669] text-xs font-bold tracking-widest uppercase">
-              About Me
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Building Networks, Crafting the Web <span className="text-[#059669]">and Automating Systems</span>.
-            </h2>
-            <p className="text-gray-400 text-lg leading-relaxed">
-              I’m Raya Geandy Pratama, a vocational high school student focused on networking, web development, and automation, with hands-on experience using MikroTik, Cisco, and modern tools to build and manage efficient systems.
-            </p>
-            {/* <p className="text-gray-400 text-lg leading-relaxed">
-              Selain fokus di infrastruktur, saya juga mengembangkan skill di **Web Development** untuk membangun alat-alat yang memudahkan manajemen sistem. Saya percaya teknologi terbaik adalah yang efisien dan mudah dikelola.
-            </p> */}
-            
-           <div className="pt-4 flex gap-8">
-              <div>
-                <h4 className="text-[#059669] font-black text-2xl">11th</h4>
-                <p className="text-gray-500 text-sm uppercase tracking-tighter">Grade Student</p>
-              </div>
-              <div className="w-[1px] bg-white/10" />
-              <div>
-                {/* <h4 className="text-[#059669] font-black text-2xl">UKL 1</h4>
-                <p className="text-gray-500 text-sm uppercase tracking-tighter">Certified Task</p> */}
-                <img src="/winbox-icon.svg" alt="Winbox" className='w-15 h-15'/>
-              </div>
-              <div>
-                <img src="/github-color.svg" alt="Github" className='w-15 h-15 brightness-0 invert'/>
-              </div>
-              <div>
-                <img src="/visual-studio.png" alt="Visual Studio" className='w-15 h-15'/>
-              </div>
-              <div>
-                <img src="/virtualbox-color.svg" alt="VirtualBox" className='w-15 h-15'/>
-              </div>
-            </div>
-
+        {/* Bagian Foto */}
+        <div className="relative flex justify-center md:justify-end">
+          {/* Ukuran foto sedikit dikurangi untuk mobile */}
+          <div className="relative rotate-2 w-64 h-72 md:w-87.5 md:h-100">
+            <div className="absolute inset-0 bg-linear-to-br from-emerald-500 to-blue-600 rotate-2 rounded-4xl blur opacity-20"></div>
+            <motion.img
+              src="/pp.jpg"
+              alt="Profile"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-full h-full object-cover rounded-4xl grayscale hover:grayscale-0 border border-white/10 shadow-2xl"
+            />
           </div>
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   );
 };
 

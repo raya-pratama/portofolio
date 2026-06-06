@@ -1,3 +1,5 @@
+"use client";
+
 const skills = ["MikroTik", "Cisco", "Linux", "Next.js", "Tailwind", "Docker", "Python", "SQL"];
 
 const MainContent = () => {

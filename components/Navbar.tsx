@@ -1,57 +1,86 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect } from 'react'; // Tambahkan useEffect
+import { Zap, Terminal, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const [isMounted, setIsMounted] = useState(false); // Tambahkan state ini
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('Home');
+
+  // Efek ini hanya akan jalan di browser, bukan di server
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Jika belum mounted (di server), return null atau skeleton agar aman
+  if (!isMounted) return null;
+
   return (
-    <div className="fixed top-6 w-full z-50 px-4 flex justify-center">
-      <nav className="
-        w-full max-w-5xl 
-        bg-white/90 backdrop-blur-xl 
-        rounded-full px-6 py-2.5 
-        flex justify-between items-center
-        border border-white
-        shadow-[0_0_25px_rgba(255,255,255,0.4)] 
-        transition-all duration-500
-      ">
-      
-        <div className="flex items-center gap-3">
-          <div className="
-            w-10 h-10 rounded-full 
-            bg-[#059669] 
-            flex items-center justify-center 
-            text-black font-black text-sm
-            shadow-[0_0_10px_rgba(5,150,105,0.3)]
-          ">
-            RY
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+      <div className="w-full max-w-2xl flex items-center justify-between px-3 py-2 rounded-full bg-[#0B0F1A]/90 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+        
+        {/* Logo Section */}
+        <div className="flex items-center gap-1 pl-3">
+          <div className="w-9 h-9 rounded-full bg-linear-to-br from-blue-500 to-emerald-500 flex items-center justify-center text-white shadow-lg">
+            <Terminal size={18} />
           </div>
-          <span className="font-bold tracking-tighter text-black hidden sm:block">
-            RAYA<span className="text-[#059669]"></span>
-          </span>
+          <span className="font-bold text-white text-lg tracking-tight">Raya Pratama</span>
         </div>
 
-    
-        <div className="flex gap-6 md:gap-10 text-xs md:text-sm font-bold text-gray-800">
-          <a href="#home" className="hover:text-[#059669] transition">Home</a>
-          <a href="#about" className="hover:text-[#059669] transition">About</a>
-          <a href="#skills" className="hover:text-[#059669] transition">Skills</a>
-          <a href="#projects" className="hover:text-[#059669] transition">Projects</a>
+        {/* Menu Links */}
+        <div className="hidden md:flex items-center gap-1 text-sm font-medium text-gray-400">
+          {['Home', 'About', 'Showcase', 'Contact'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`}
+              // Update activeMenu saat diklik
+              onClick={() => setActiveMenu(item)}
+              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                activeMenu === item 
+                  ? 'text-white bg-[#06B6D4]/20 shadow-[0_0_15px_rgba(6,182,212,0.2)]' 
+                  : 'hover:text-white hover:bg-white/5'
+              }`}
+            >
+              {item}
+            </a>
+          ))}
         </div>
 
-      
-        <div className="">
-          <a href="#footer" className="
-            px-6 py-2 
-            bg-[#059669] 
-            text-black rounded-full 
-            text-xs font-bold 
-            hover:bg-[#047857] 
-            transition-all 
-            shadow-[0_0_15px_rgba(5,150,105,0.4)]
-          ">
-            let's talk
-          </a>
+        {/* Tombol Mobile & Let's Talk */}
+        <button className="md:hidden text-white p-2" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        <div className="hidden md:flex">
+          <button className="flex items-center gap-1 px-6 py-2.5 rounded-full bg-linear-to-r from-blue-500 to-emerald-500 text-black text-sm font-bold hover:bg-[#047857] hover:shadow-[0_0_20px_rgba(5,150,105,0.6)] transition-all duration-300">
+            <Zap size={14} fill="currentColor" />
+            <a href="#contact" className="text-black">
+              Let's Talk
+            </a>
+          </button>
         </div>
-      </nav>
-    </div>
+      </div>
+
+      {/* Menu Mobile */}
+      {isOpen && (
+        <div className="absolute top-20 left-4 right-4 bg-[#0B0F1A]/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 flex flex-col gap-4 md:hidden shadow-2xl">
+          {['Home', 'About', 'Showcase', 'Contact'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              className={`text-lg font-medium border-b border-white/5 pb-2 ${activeMenu === item ? 'text-cyan-400' : 'text-gray-300'}`} 
+              onClick={() => {
+                setActiveMenu(item);
+                setIsOpen(false);
+              }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 };
 

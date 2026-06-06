@@ -132,7 +132,7 @@ const Projects = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 flex flex-col flex-grow text-left">
+                    <div className="p-8 flex flex-col grow text-left">
                       <span className="text-[#059669] text-[10px] font-bold uppercase tracking-[0.2em]">
                         {project.category}
                       </span>
@@ -157,7 +157,7 @@ const Projects = () => {
               ))}
             </Swiper>
           ) : (
-            <div className="h-[450px] w-full max-w-md mx-auto bg-[#0B0F1A] rounded-3xl animate-pulse" />
+            <div className="h-112.5 w-full max-w-md mx-auto bg-[#0B0F1A] rounded-3xl animate-pulse" />
           )}
         </div>
       </div>
