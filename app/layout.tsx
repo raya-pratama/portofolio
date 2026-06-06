@@ -16,7 +16,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Raya Geandy Pratama | Portfolio",
-  description: "Portfolio of a Network Engineer and Web Developer",
+  description: "Portfolio of a Network Engineer and AI Automation Anthusiast.",
   icons: {
     icon: "/favicon.ico", // Pastikan kamu punya file favicon di folder public
   },

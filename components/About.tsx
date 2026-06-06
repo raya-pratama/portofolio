@@ -2,6 +2,18 @@
 
 import React from 'react';
 import { Smartphone, Palette, Zap, Globe, Code, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const SectionWrapper = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
 
 const About = () => {
   return (

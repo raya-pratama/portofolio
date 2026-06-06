@@ -4,6 +4,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, FolderCode, Award, Cpu, Download, ExternalLink, X } from 'lucide-react';
 
+const SectionWrapper = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
+
 // --- DATA ---
 const PROJECTS = [
   {
@@ -104,7 +115,7 @@ const Showcase = () => {
             {activeTab === 'Projects' && PROJECTS.map((p, i) => (
               <div key={i} className="bg-[#0B0F1A]/90 rounded-2xl border border-white/10 overflow-hidden hover:border-cyan-500/50 transition-all">
                 <div className="relative h-48 overflow-hidden group">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={p.image} alt={p.title} loading='lazy' className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
 
                   {/* Tombol View di atas gambar (muncul saat hover) */}
                   <button
@@ -158,7 +169,7 @@ const Showcase = () => {
                   className="relative h-48 cursor-pointer overflow-hidden group"
                   onClick={() => setSelectedImage(c.image)}
                 >
-                  <img src={c.image} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 will-change-transform" />
+                  <img src={c.image} alt={c.title} loading='lazy' className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 will-change-transform" />
                   {/* Overlay saat hover */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="text-white font-bold bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">Click to View</span>
@@ -182,7 +193,7 @@ const Showcase = () => {
             {activeTab === 'Skills' && SKILLS.map((s, i) => (
               <div key={i} className="bg-[#0B0F1A]/90 p-6 rounded-xl border border-white/10 text-center flex flex-col items-center hover:border-white/20 transition-all">
                 <div className="w-14 h-14 bg-white/5 rounded mb-3 flex items-center justify-center">
-                  <img src={s.image} alt={s.name} className="w-12 h-12 object-contain" />
+                  <img src={s.image} alt={s.name} loading='lazy' className="w-12 h-12 object-contain" />
                 </div>
                 <span className="text-sm font-bold">{s.name}</span>
                 <span className="text-[10px] text-gray-500 uppercase">{s.category}</span>
