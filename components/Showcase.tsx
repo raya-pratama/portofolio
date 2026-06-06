@@ -108,8 +108,11 @@ const Showcase = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
+            layout
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className={`grid gap-6 ${activeTab === 'Skills' ? 'grid-cols-2 md:grid-cols-6' : 'grid-cols-1 md:grid-cols-3'}`}
           >
             {activeTab === 'Projects' && PROJECTS.map((p, i) => (

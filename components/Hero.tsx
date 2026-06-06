@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-32 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-16 md:pt-0">
       
       {/* Background Grid */}
       {/* <div
@@ -31,7 +31,7 @@ const Hero = () => {
           <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
           STUDENT
         </div>
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">
+          <h1 className="text-5xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">
             Hi, I'm <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-blue-500">Raya</span> Pratama
           </h1>
@@ -64,8 +64,18 @@ const Hero = () => {
             <motion.img
               src="/pp.jpg"
               alt="Profile"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1, 
+                y: [0, -10, 0] // 2. Floating animation tetap jalan setelah muncul
+              }}
+              transition={{ 
+                duration: 0.8, // Durasi muncul
+                ease: "easeOut",
+                // 3. Setelah muncul, animasi floating akan di-looping
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 } 
+              }}
               className="w-full h-full object-cover rounded-4xl grayscale hover:grayscale-0 border border-white/10 shadow-2xl"
             />
           </div>
