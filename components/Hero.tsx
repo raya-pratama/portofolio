@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-16 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-2 md:pt-0">
       
       {/* Background Grid */}
       {/* <div

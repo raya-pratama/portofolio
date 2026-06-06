@@ -32,21 +32,21 @@ const About = () => {
 
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                I am a passionate <strong>Fullstack Developer & Creative Technologist</strong> dedicated to crafting intuitive and visually stunning digital experiences.
+                I am aspiring to become a <strong>Network & AI Engineer</strong> passionate about building reliable network infrastructures and intelligent technology solutions.
               </p>
               <p>
-                With focused learning and hands-on practice, I bridge the gap between creative design and technical implementation.
+                I continuously develop my skills in networking, automation, cloud technologies, and artificial intelligence through hands-on projects and real-world practice.
               </p>
               <p className="text-gray-300 italic border-l-2 border-fuchsia-500 pl-4">
-                Membangun pengalaman digital imersif dengan kode bersih, antarmuka modern, dan solusi teknis berkinerja tinggi.
+                Creating secure, scalable, and innovative technology solutions by combining computer networking, automation, and artificial intelligence.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-4">
               {[
-                { icon: Smartphone, label: 'Responsive Design' },
-                { icon: Palette, label: 'Modern Design' },
-                { icon: Zap, label: 'Performance' }
+                { icon: Globe, label: 'Network Infrastructure' },
+                { icon: Zap, label: 'Automation' },
+                { icon: Code, label: 'AI Solutions' }
               ].map((skill, i) => (
                 <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm hover:border-fuchsia-500/50 transition-all">
                   <skill.icon size={16} className="text-fuchsia-400" />
