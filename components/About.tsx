@@ -67,7 +67,7 @@ const About = () => {
 
                 <div className="w-56 h-56 md:w-60 md:h-60 rounded-full border border-white/5" />
                 <img
-                  src="/pp.jpg"
+                  src="/pp2.jpg"
                   alt="Raya Pratama"
                   className="absolute w-48 h-48 md:w-52 md:h-52 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/10"
                 />
