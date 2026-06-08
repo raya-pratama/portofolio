@@ -31,6 +31,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} ${jetbrains.variable} font-sans bg-[#0B0F1A] text-[#F0F9FF] antialiased`}
+        suppressHydrationWarning={true}
       >
         {/* Konten Utama */}
         {children}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'; // Tambahkan useEffect
 import { Zap, Terminal, Menu, X } from 'lucide-react';
+import Link from 'next/link'; // Tambahkan ini
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false); // Tambahkan state ini
@@ -55,31 +56,36 @@ const Navbar = () => {
         <div className="hidden md:flex">
           <button className="flex items-center gap-1 px-6 py-2.5 rounded-full bg-linear-to-r from-blue-500 to-emerald-500 text-black text-sm font-bold hover:bg-[#047857] hover:shadow-[0_0_20px_rgba(5,150,105,0.6)] transition-all duration-300">
             <Zap size={14} fill="currentColor" />
-            <a href="#contact" className="text-black">
-              Let's Talk
-            </a>
+            <Link href="/blog" className="text-black">
+              My Blog
+            </Link>
           </button>
         </div>
       </div>
 
       {/* Menu Mobile */}
       {isOpen && (
-        <div className="absolute top-20 left-4 right-4 bg-[#0B0F1A]/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 flex flex-col gap-4 md:hidden shadow-2xl">
-          {['Home', 'About', 'Showcase', 'Contact'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className={`text-lg font-medium border-b border-white/5 pb-2 ${activeMenu === item ? 'text-cyan-400' : 'text-gray-300'}`} 
-              onClick={() => {
-                setActiveMenu(item);
-                setIsOpen(false);
-              }}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      )}
+  <div className="absolute top-20 left-4 right-4 bg-[#0B0F1A]/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 flex flex-col gap-4 md:hidden shadow-2xl">
+    {['Home', 'About', 'Showcase', 'Contact'].map((item) => (
+      <a 
+        key={item} 
+        href={`#${item.toLowerCase()}`} 
+        className={`text-lg font-medium border-b border-white/5 pb-2 ${activeMenu === item ? 'text-cyan-400' : 'text-gray-300'}`} 
+        onClick={() => { setActiveMenu(item); setIsOpen(false); }}
+      >
+        {item}
+      </a>
+    ))}
+    {/* Tombol Blog untuk HP */}
+    <Link 
+      href="/blog" 
+      onClick={() => setIsOpen(false)}
+      className="mt-2 w-full text-center py-3 rounded-full bg-linear-to-r from-blue-500 to-emerald-500 text-black font-bold"
+    >
+      My Blog
+    </Link>
+  </div>
+)}
     </nav>
   );
 };
