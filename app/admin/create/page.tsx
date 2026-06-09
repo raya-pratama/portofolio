@@ -108,7 +108,7 @@ export default function CreateBlog() {
 
                             {block.type === 'text' ? (
                                 <textarea
-                                    className="w-full bg-transparent text-sm outline-none resize-none"
+                                    className="w-full bg-transparent text-sm outline-none resize-none leading-6 p-2 box-border min-h-40 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                                     placeholder="Isi teks..."
                                     value={block.value}
                                     onChange={e => {
