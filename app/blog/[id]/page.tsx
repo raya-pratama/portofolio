@@ -57,6 +57,7 @@ export default function ViewBlog() {
                                         src={block.value}
                                         className="w-full rounded-3xl border border-white/10 shadow-lg object-cover"
                                         alt={`Content ${i}`}
+                                        loading="lazy"
                                         onError={(e) => {
                                             console.error("Gagal load gambar:", block.value);
                                             e.currentTarget.src = "/fallback-image.png"; // Ganti dengan gambar error lokal jika perlu
